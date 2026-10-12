@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chamil Kandamby — Senior Technical Lead and App Developer</title>
+<meta name="description" content="Chamil Kandamby builds web, mobile, desktop and cloud apps on .NET, Azure, Angular, Flutter and Laravel, and leads the teams that ship them. Based in Moratuwa, Sri Lanka.">
+<link rel="canonical" href="https://chamil.around2.com/">
+<meta property="og:site_name" content="Chamil Kandamby">
+<meta property="og:title" content="Chamil Kandamby — Senior Technical Lead and App Developer">
+<meta property="og:description" content="Web, mobile, desktop and cloud apps on .NET, Azure, Angular, Flutter and Laravel: tested, secure and documented. Available for freelance projects.">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://chamil.around2.com/">
+<meta property="og:image" content="https://chamil.around2.com/assets/portrait.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#17150f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Lora:wght@400;600&display=swap">
+<style>
+/* Layout: around2's magazine shell — paper masthead, an ink hero band, then
+   alternating page/paper sections on one 44px gutter, closing on an ink footer.
+
+   Tokens are copied from around2/resources/css/app.css (the "Classical"
+   palette). That file is the source of truth; keep these in step with it. */
+:root {
+  --color-bg: #f3f2f2;
+  --color-page: #e6e4e1;
+  --color-paper: #fff;
+  --color-surface: #eae9e9;
+  --color-ink: #17150f;
+  --color-text: #201f1d;
+  --color-accent: #b68235;
+  --color-accent-text: #7d5411;
+  --color-accent-400: #e1ad66;
+  --color-accent-700: #7d5411;
+  --color-accent-100: #fff3e4;
+  --color-neutral-100: #f8f4f4;
+  --color-neutral-800: #444141;
+  --color-divider: color-mix(in srgb, #201f1d 16%, transparent);
+
+  --text-muted: rgba(32, 31, 29, .65);
+  --text-soft: rgba(32, 31, 29, .78);
+  --on-ink: #f7f4f0;
+  --on-ink-soft: rgba(247, 244, 240, .78);
+  --on-ink-muted: rgba(243, 242, 242, .58);
+  --on-ink-line: rgba(243, 242, 242, .14);
+
+  --font-heading: "Cormorant Garamond", "EB Garamond", Garamond, Georgia, serif;
+  --font-body: "Lora", Georgia, "Times New Roman", serif;
+
+  --radius-md: 4px;
+  --gutter: 44px;
+  --masthead-h: 82px;
+  color-scheme: light;
+}
+
+/* ── base ─────────────────────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: var(--masthead-h); }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+
+body {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 {
+  font-family: var(--font-heading); font-weight: 400;
+  line-height: 1.12; letter-spacing: -0.01em; margin: 0;
+  text-wrap: balance; font-variant-numeric: lining-nums;
+}
+p { margin: 0; }
+a { color: var(--color-accent-text); text-underline-offset: 3px; }
+a:hover { color: var(--color-accent-700); }
+img { display: block; max-width: 100%; }
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+.caps {
+  font-family: var(--font-body); font-size: 10.5px;
+  letter-spacing: .18em; text-transform: uppercase;
+}
+.kicker { color: var(--color-accent-text); }
+.muted { color: var(--text-muted); }
+
+.skip {
+  position: absolute; left: var(--gutter); top: -60px; z-index: 50;
+  background: var(--color-ink); color: var(--on-ink); padding: 10px 16px;
+}
+.skip:focus { top: 10px; color: var(--on-ink); }
+
+/* ── masthead ─────────────────────────────────────────────────────────── */
+
+.masthead {
+  background: var(--color-paper); display: flex; align-items: center;
+  gap: 24px; padding: 20px var(--gutter);
+  border-bottom: 1px solid var(--color-divider);
+  position: sticky; top: 0; z-index: 40;
+}
+.masthead-brand { margin-right: auto; text-decoration: none; color: inherit; }
+.masthead-brand:hover { color: inherit; }
+.masthead-name {
+  font-family: var(--font-heading); font-size: 27px;
+  letter-spacing: .2em; line-height: 1; text-transform: uppercase;
+}
+.masthead-tagline {
+  font-size: 8px; letter-spacing: .28em; text-transform: uppercase;
+  color: var(--text-muted); margin-top: 6px;
+}
+.masthead-nav {
+  display: flex; gap: 30px; font-size: 11px;
+  letter-spacing: .15em; text-transform: uppercase; flex-wrap: wrap;
+}
+.masthead-nav a { color: inherit; text-decoration: none; }
+.masthead-nav a:hover { color: var(--color-accent-text); }
+.masthead-tools { display: flex; gap: 16px; align-items: center; }
+.masthead-tools a { display: flex; color: var(--color-text); }
+.masthead-tools a:hover { color: var(--color-accent-text); }
+.masthead-burger { display: none; background: none; border: 0; padding: 0; cursor: pointer; color: inherit; }
+.icon { display: block; flex: none; }
+
+/* ── hero (ink band) ──────────────────────────────────────────────────── */
+
+.hero {
+  background: var(--color-ink); color: var(--on-ink-soft);
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+}
+.hero-main { padding: 72px var(--gutter) 0; min-width: 0; }
+.hero-body { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.hero-kicker { color: var(--color-accent-400); letter-spacing: .24em; }
+.hero h1 { font-size: 68px; line-height: 1; color: var(--on-ink); max-width: 15ch; }
+.hero-dek { font-size: 16px; line-height: 1.75; max-width: 560px; }
+.hero-actions { display: flex; gap: 14px 26px; align-items: center; flex-wrap: wrap; margin-top: 6px; }
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid rgba(225, 173, 102, .75); border-radius: 999px;
+  padding: 15px 32px; color: var(--color-accent-400);
+  font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; text-decoration: none;
+}
+.hero-cta:hover { background: rgba(225, 173, 102, .12); color: var(--color-accent-400); }
+.hero-link { color: var(--on-ink-soft); font-size: 11.5px; letter-spacing: .2em; text-transform: uppercase; text-decoration: none; }
+.hero-link:hover { color: var(--color-accent-400); }
+
+
+.hero-stats {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 56px; border-top: 1px solid var(--on-ink-line);
+}
+
+/* The portrait gets around2's plate treatment and fades into the ink band
+   on its left edge, like the scrim over around2's hero photograph. */
+.hero-photo { position: relative; margin: 0; min-height: 100%; overflow: hidden; }
+.hero-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: 50% 18%;
+  filter: sepia(.22) saturate(.82) contrast(1.05);
+}
+.hero-photo::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(23, 21, 15, 1) 0%, rgba(23, 21, 15, .55) 16%, rgba(23, 21, 15, 0) 42%),
+    linear-gradient(0deg, rgba(23, 21, 15, .45) 0%, rgba(23, 21, 15, 0) 28%);
+}
+.hero-stat { padding: 20px 22px 30px; border-left: 1px solid var(--on-ink-line); }
+.hero-stat:first-child { padding-left: 0; border-left: 0; }
+.hero-stat-num { font-family: var(--font-heading); font-size: 38px; line-height: 1; color: var(--on-ink); font-variant-numeric: lining-nums tabular-nums; }
+.hero-stat-label { font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--on-ink-muted); margin-top: 8px; }
+
+/* ── section shell ────────────────────────────────────────────────────── */
+
+.section { padding: 56px var(--gutter) 60px; }
+.section-paper { background: var(--color-paper); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); }
+.section-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px 20px; flex-wrap: wrap; margin-bottom: 30px;
+}
+.section-head h2 { font-size: 40px; }
+.section-head a, .section-head span { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; text-decoration: none; }
+.section-head span { color: var(--text-muted); }
+
+/* ── services: the home page's strip, two rows of three ───────────────── */
+
+.services { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.service { padding: 30px 34px; display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--color-divider); min-width: 0; }
+.service:nth-child(3n+1) { padding-left: 0; }
+.service:nth-child(3n) { padding-right: 0; }
+.service:not(:nth-child(3n+1)) { border-left: 1px solid var(--color-divider); }
+.service h3 { font-size: 28px; }
+.service p { font-size: 13.5px; line-height: 1.7; color: var(--text-soft); }
+
+/* ── how I work: practice and security as two numbered columns ────────── */
+
+.practice-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px 56px; }
+.practice-label { margin-bottom: 14px; }
+.practice { list-style: none; margin: 0; padding: 0; counter-reset: practice; }
+.practice li {
+  counter-increment: practice; display: grid; grid-template-columns: 40px minmax(0, 1fr);
+  gap: 6px 16px; padding: 18px 0 20px; border-top: 1px solid var(--color-divider);
+}
+.practice li::before {
+  content: counter(practice, decimal-leading-zero); grid-row: 1 / span 2;
+  font-family: var(--font-heading); font-size: 26px; line-height: 1; color: var(--color-accent);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+.practice h3, .practice p { grid-column: 2; }
+.practice h3 { font-size: 23px; }
+.practice p { font-size: 13.5px; line-height: 1.7; color: var(--text-soft); }
+.practice-note {
+  margin-top: 30px; padding: 18px 22px; background: var(--color-paper);
+  border-left: 2px solid var(--color-accent); font-size: 13.5px; line-height: 1.7; color: var(--text-soft);
+}
+.practice-note strong { color: var(--color-text); font-weight: 600; }
+
+/* Flag beside "Sri Lankan" and the location. Real colours: no plate filter. */
+.flag {
+  display: inline-block; width: 22px; height: 11px; vertical-align: -1px; margin-right: 10px;
+  box-shadow: 0 0 0 1px rgba(243, 242, 242, .18);
+}
+
+/* ── experience: each role on a shared 2015 → today axis ──────────────── */
+
+.jobs { list-style: none; margin: 0; padding: 0; }
+.job, .job-axis {
+  display: grid; grid-template-columns: 180px minmax(0, 1fr) 300px;
+  gap: 8px 34px; align-items: start;
+}
+.job { padding: 24px 0; border-top: 1px solid var(--color-divider); }
+.job-axis { padding-bottom: 10px; }
+.job-when { color: var(--text-muted); font-variant-numeric: tabular-nums; padding-top: 7px; white-space: nowrap; }
+.job-title { font-size: 25px; line-height: 1.12; }
+.job-sub { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--color-accent-text); margin-top: 6px; }
+
+.axis { grid-column: 3; position: relative; height: 16px; }
+.axis .tick {
+  position: absolute; top: 0; transform: translateX(-50%);
+  font-size: 9.5px; letter-spacing: .12em; color: var(--text-muted); font-variant-numeric: tabular-nums;
+}
+.job-track { position: relative; height: 14px; margin-top: 12px; }
+.job-track::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--color-divider); }
+.job-track .grid { position: absolute; top: -4px; bottom: -4px; width: 1px; background: color-mix(in srgb, #201f1d 9%, transparent); }
+.job-bar { position: absolute; top: 3px; height: 8px; min-width: 3px; background: var(--color-accent); }
+.job.is-current .job-bar { background: var(--color-accent-text); }
+.job.is-parttime .job-bar { background: transparent; border: 1px solid var(--color-accent-text); }
+
+/* ── teaching ─────────────────────────────────────────────────────────── */
+
+.teach-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.teach { padding: 4px 30px 0; border-left: 1px solid var(--color-divider); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.teach:first-child { padding-left: 0; border-left: 0; }
+.teach:last-child { padding-right: 0; }
+.teach h3 { font-size: 24px; }
+.teach p { font-size: 13.5px; line-height: 1.75; color: var(--text-soft); }
+
+/* ── stack and education ──────────────────────────────────────────────── */
+
+.split { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; }
+.split h2 { font-size: 34px; margin-bottom: 18px; }
+.stack-group { padding: 14px 0; border-top: 1px solid var(--color-divider); display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 10px 20px; align-items: baseline; }
+.stack-group .caps { color: var(--text-muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-size: 11.5px; padding: 3px 10px; border-radius: 3px; background: var(--color-neutral-100); color: var(--color-neutral-800); }
+.edu { list-style: none; margin: 0; padding: 0; }
+.edu li { padding: 14px 0; border-top: 1px solid var(--color-divider); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 16px; }
+.edu-school { font-family: var(--font-heading); font-size: 21px; line-height: 1.2; }
+.edu-what { grid-column: 1; font-size: 13px; color: var(--text-soft); }
+.edu-when { grid-column: 2; grid-row: 1; color: var(--text-muted); font-variant-numeric: tabular-nums; padding-top: 5px; }
+
+/* ── contact (ink band) ───────────────────────────────────────────────── */
+
+.contact { background: var(--color-ink); color: var(--on-ink-soft); padding: 64px var(--gutter); }
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; max-width: 1240px; }
+.contact h2 { font-size: 56px; line-height: 1; color: var(--on-ink); margin-bottom: 18px; }
+.contact-dek { font-size: 15.5px; line-height: 1.8; max-width: 480px; }
+.contact-list { margin: 0; }
+.contact-list > div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 14px; padding: 14px 0; border-top: 1px solid var(--on-ink-line); align-items: baseline; }
+.contact-list > div:first-child { border-top: 0; padding-top: 4px; }
+.contact-list dt { font-size: 9.5px; letter-spacing: .22em; text-transform: uppercase; color: var(--color-accent-400); }
+.contact-list dd { margin: 0; color: var(--on-ink); font-size: 14px; min-width: 0; overflow-wrap: anywhere; }
+.contact-list a { color: var(--on-ink); text-decoration-color: rgba(225, 173, 102, .6); }
+.contact-list a:hover { color: var(--color-accent-400); }
+.email-row { display: flex; align-items: baseline; gap: 10px 16px; flex-wrap: wrap; }
+.email { font-family: var(--font-heading); font-size: 24px; color: var(--on-ink); user-select: all; }
+.copy {
+  background: none; border: 1px solid rgba(225, 173, 102, .6); border-radius: 999px; cursor: pointer;
+  color: var(--color-accent-400); font: inherit; font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+  padding: 6px 14px;
+}
+.copy:hover { background: rgba(225, 173, 102, .12); }
+
+.site-footer {
+  background: var(--color-ink); color: var(--on-ink-muted);
+  padding: 18px var(--gutter) 30px;
+}
+.site-footer-legal {
+  border-top: 1px solid var(--on-ink-line); padding-top: 18px;
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+}
+.site-footer a { color: inherit; text-decoration: none; }
+.site-footer a:hover { color: var(--color-accent-400); }
+
+/* ── responsive ── around2 switches to its 390px screens at 860px ─────── */
+
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 38%); }
+  .hero h1 { font-size: 56px; }
+  .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .service:nth-child(n) { padding: 26px 28px; border-left: 0; }
+  .service:nth-child(2n+1) { padding-left: 0; }
+  .service:nth-child(2n) { padding-right: 0; border-left: 1px solid var(--color-divider); }
+  .teach-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 0; }
+  .teach:nth-child(n) { padding: 0 28px; border-left: 0; }
+  .teach:nth-child(2n+1) { padding-left: 0; }
+  .teach:nth-child(2n) { padding-right: 0; border-left: 1px solid var(--color-divider); }
+  .split { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .job, .job-axis { grid-template-columns: 170px minmax(0, 1fr) 220px; gap: 8px 24px; }
+}
+
+@media (max-width: 860px) {
+  :root { --gutter: 20px; --masthead-h: 64px; }
+
+  .masthead { flex-wrap: wrap; gap: 12px; padding: 14px var(--gutter); }
+  .masthead-name { font-size: 19px; letter-spacing: .14em; }
+  .masthead-burger { display: block; order: 3; }
+  .masthead-tools { display: none; }
+  .masthead-nav {
+    display: none; order: 4; width: 100%; gap: 14px 22px;
+    padding-top: 12px; border-top: 1px solid var(--color-divider);
+  }
+  .masthead-nav.is-open { display: flex; }
+
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero-main { padding-top: 8px; }
+  .hero-photo { order: -1; aspect-ratio: 1 / 1; min-height: 0; }
+  .hero-photo img { object-position: 50% 22%; }
+  .hero-photo::after { background: linear-gradient(0deg, rgba(23, 21, 15, 1) 0%, rgba(23, 21, 15, 0) 38%); }
+  .hero h1 { font-size: 44px; }
+  .hero-dek { font-size: 15px; }
+  .hero-stats { margin-top: 40px; }
+  .hero-stat { padding: 16px 12px 24px; }
+  .hero-stat-num { font-size: 30px; }
+  .hero-stat-label { font-size: 9px; letter-spacing: .12em; }
+
+  .section { padding: 40px var(--gutter) 44px; }
+  .section-head h2 { font-size: 32px; }
+
+  .services, .teach-grid, .contact-grid, .practice-grid { grid-template-columns: minmax(0, 1fr); }
+  .practice h3 { font-size: 21px; }
+  .service:nth-child(n), .teach:nth-child(n) { padding: 22px 0; border-left: 0; }
+  .teach:nth-child(n) { border-top: 1px solid var(--color-divider); }
+  .teach-grid { gap: 0; }
+
+  .job, .job-axis { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .job-axis { padding-bottom: 6px; }
+  .axis { grid-column: 1; }
+  .job-when { padding-top: 0; }
+  .job-title { font-size: 22px; }
+  .job-track { margin-top: 10px; }
+
+  .stack-group { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .contact { padding: 44px var(--gutter); }
+  .contact h2 { font-size: 40px; }
+  .contact-grid { gap: 32px; }
+  .contact-list > div { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .email { font-size: 21px; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <a class="masthead-brand" href="#top">
+    <div class="masthead-name">Chamil Kandamby</div>
+    <div class="masthead-tagline">Apps · Cloud · Technical leadership</div>
+  </a>
+
+  <button class="masthead-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+    <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
+  </button>
+
+  <nav class="masthead-nav" id="site-nav" aria-label="Sections">
+    <a href="#services">Services</a>
+    <a href="#practice">How I work</a>
+    <a href="#experience">Experience</a>
+    <a href="#teaching">Teaching</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="masthead-tools">
+    <a href="https://www.linkedin.com/in/chamilkandamby" aria-label="LinkedIn" rel="me">
+      <svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><path d="M2 9h4v12H2z"></path><circle cx="4" cy="4" r="2"></circle></svg>
+    </a>
+    <a href="#contact" aria-label="Contact">
+      <svg class="icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 4h20v16H2zM2 7l10 6 10-6"></path></svg>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="hero-main">
+    <div class="hero-body">
+      <div class="caps hero-kicker"><img class="flag" src="assets/flag-lk.svg" alt="" width="22" height="11">Sri Lankan · Senior Technical Lead · Full-stack engineer</div>
+      <h1>I build apps, and lead the teams that ship them.</h1>
+      <p class="hero-dek">Over ten years of web, mobile, desktop and cloud work for clients in the United Kingdom, Norway, Malaysia and Sri Lanka, on .NET, Azure, Angular, Flutter and Laravel. Now taking on freelance app projects.</p>
+      <div class="hero-actions">
+        <a class="hero-cta" href="#contact">Start a project
+          <svg class="icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </a>
+        <a class="hero-link" href="#experience">See experience</a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">10+</div><div class="hero-stat-label">Years building software</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Countries of clients</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">2021</div><div class="hero-stat-label">Leading teams since</div></div>
+    </div>
+  </div>
+  <figure class="hero-photo">
+    <img src="assets/portrait.jpg" alt="Chamil Kandamby" width="960" height="1280">
+  </figure>
+</section>
+
+<section class="section section-paper" id="services">
+  <div class="section-head">
+    <h2>What I build</h2>
+    <a href="#contact">Discuss a project</a>
+  </div>
+  <div class="services">
+    <article class="service">
+      <div class="caps kicker">Mobile</div>
+      <h3>Mobile apps</h3>
+      <p>Flutter and Ionic apps for Android and iOS, from the first screen to the store listing, including Bluetooth companion apps for ESP32 and other devices.</p>
+    </article>
+    <article class="service">
+      <div class="caps kicker">Web</div>
+      <h3>Web apps and APIs</h3>
+      <p>ASP.NET, Angular, React, Next.js and Laravel. New products, or careful work on systems that already have users depending on them.</p>
+    </article>
+    <article class="service">
+      <div class="caps kicker">Cloud</div>
+      <h3>Cloud and integration</h3>
+      <p>Message-driven services on Azure Service Bus, Functions, Cosmos DB and Kubernetes, including moving a monolith to microservices one piece at a time.</p>
+    </article>
+    <article class="service">
+      <div class="caps kicker">Desktop</div>
+      <h3>Desktop apps</h3>
+      <p>Cross-platform desktop apps in .NET 8 with Avalonia, or in Electron, packaged for Windows and Linux as installers, AppImage, rpm and deb.</p>
+    </article>
+    <article class="service">
+      <div class="caps kicker">IoT</div>
+      <h3>Connected devices</h3>
+      <p>ESP32 firmware, encrypted Bluetooth, and the cloud pipeline behind it, through to a dashboard people can read at a glance.</p>
+    </article>
+    <article class="service">
+      <div class="caps kicker">Leadership</div>
+      <h3>Technical leadership</h3>
+      <p>Architecture, code review, release management and Agile delivery for distributed teams. I have mentored interns and taught software engineering at university.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="practice">
+  <div class="section-head">
+    <h2>How I work</h2>
+    <span>The same on every project, large or small</span>
+  </div>
+  <div class="practice-grid">
+    <div>
+      <div class="caps kicker practice-label">Engineering practice</div>
+      <ol class="practice">
+        <li>
+          <h3>Scope agreed in writing</h3>
+          <p>Before any code, we agree what the app must do, what is out of scope, and how each milestone will be accepted. Changes are discussed and agreed, never assumed.</p>
+        </li>
+        <li>
+          <h3>Short milestones, regular demos</h3>
+          <p>Work is split into small milestones, each with a build you can try. It is the same Agile rhythm I have run with distributed teams for years.</p>
+        </li>
+        <li>
+          <h3>Code another developer can maintain</h3>
+          <p>Clear structure and naming, linting and consistent formatting, and a Git history of small, described changes. Nobody should need me to understand it.</p>
+        </li>
+        <li>
+          <h3>Automated tests, end to end</h3>
+          <p>Unit and integration tests on business rules, permissions and anything involving money, plus Playwright end-to-end tests that drive the real app in Chromium, Firefox and WebKit, phone screens included. They all run on every change.</p>
+        </li>
+        <li>
+          <h3>Performance tested with k6</h3>
+          <p>Load, stress and soak tests written in k6 against realistic user journeys, with pass or fail thresholds on response time and error rate. You learn how much traffic the app can take before launch day, not on it.</p>
+        </li>
+        <li>
+          <h3>Automated build, release and monitoring</h3>
+          <p>A CI/CD pipeline builds, tests and deploys each version. Separate test and live environments, versioned releases with a way back, and logging with error alerts so problems surface before your users report them.</p>
+        </li>
+        <li>
+          <h3>Documentation and a clean handover</h3>
+          <p>A README, setup and deployment steps, and API documentation, with the full source in your own repository. You own everything, and nothing depends on me.</p>
+        </li>
+      </ol>
+    </div>
+    <div>
+      <div class="caps kicker practice-label">Security by default</div>
+      <ol class="practice">
+        <li>
+          <h3>No secrets in code</h3>
+          <p>API keys, passwords and connection strings live in environment settings or a key vault, never in the repository or inside the app. Each environment has its own, and each service account gets only the access it needs.</p>
+        </li>
+        <li>
+          <h3>Sign-in and permissions done properly</h3>
+          <p>Proven identity providers and standards such as OAuth 2.0 and OpenID Connect. Passwords are stored only as strong one-way hashes, and permissions are checked on the server for every request, not just hidden in the interface.</p>
+        </li>
+        <li>
+          <h3>Every input treated as untrusted</h3>
+          <p>Server-side validation, parameterised database queries and encoded output, with the OWASP Top 10 as the checklist: injection, broken access control, cross-site scripting and the rest. Public endpoints are rate-limited.</p>
+        </li>
+        <li>
+          <h3>Personal data kept to a minimum</h3>
+          <p>HTTPS everywhere and data encrypted at rest. The app collects only what it needs, and no personal data or tokens are written to logs. Card payments go through a payment provider, so card numbers never reach your servers.</p>
+        </li>
+        <li>
+          <h3>Mobile and device security</h3>
+          <p>Sign-in tokens kept in the phone's secure storage (Keychain on iOS, Keystore on Android), release builds signed and obfuscated, and Bluetooth links between app and device paired and encrypted.</p>
+        </li>
+        <li>
+          <h3>Dependencies kept current</h3>
+          <p>Packages from official sources with pinned versions, automated vulnerability alerts, and security updates applied promptly. At handover, accounts and keys move to you and my access is removed.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+  <p class="practice-note"><strong>An honest limit:</strong> I build securely, but I am not a penetration tester. For apps that handle payments, health records or other sensitive personal data, I recommend an independent security test before launch, and I will work with whoever runs it.</p>
+</section>
+
+<section class="section section-paper" id="experience">
+  <div class="section-head">
+    <h2>Experience</h2>
+    <span>Each bar is drawn to scale, 2015 to today</span>
+  </div>
+
+  <div class="job-axis" aria-hidden="true">
+    <div class="axis" data-axis></div>
+  </div>
+  <ol class="jobs" data-timeline>
+    <li class="job is-current" data-from="2024-09" data-to="now">
+      <div class="caps job-when">Sep 2024 – now</div>
+      <div>
+        <h3 class="job-title">Senior Technical Lead</h3>
+        <div class="job-sub">Current role</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job" data-from="2023-04" data-to="2024-08">
+      <div class="caps job-when">Apr 2023 – Aug 2024</div>
+      <div>
+        <h3 class="job-title">Technical Lead</h3>
+        <div class="job-sub">United Kingdom</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job" data-from="2022-08" data-to="2023-03">
+      <div class="caps job-when">Aug 2022 – Mar 2023</div>
+      <div>
+        <h3 class="job-title">Associate Technical Lead, then Technical Lead</h3>
+        <div class="job-sub">UK regulations platform</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job is-parttime" data-from="2021-11" data-to="2023-04">
+      <div class="caps job-when">Nov 2021 – Apr 2023</div>
+      <div>
+        <h3 class="job-title">Visiting Lecturer</h3>
+        <div class="job-sub">Part-time · BSc Software Engineering</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job" data-from="2021-11" data-to="2022-07">
+      <div class="caps job-when">Nov 2021 – Jul 2022</div>
+      <div>
+        <h3 class="job-title">Associate Technical Lead</h3>
+        <div class="job-sub">Vehicle inspection client · Norway</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job" data-from="2018-09" data-to="2021-10">
+      <div class="caps job-when">Sep 2018 – Oct 2021</div>
+      <div>
+        <h3 class="job-title">Software Engineer, then Senior Software Engineer</h3>
+        <div class="job-sub">Trade and supply-chain client · Norway</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job" data-from="2016-11" data-to="2018-07">
+      <div class="caps job-when">Nov 2016 – Jul 2018</div>
+      <div>
+        <h3 class="job-title">Software Engineer</h3>
+        <div class="job-sub">Mobile apps · Malaysia and Sri Lanka</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job" data-from="2016-06" data-to="2016-09">
+      <div class="caps job-when">Jun 2016 – Sep 2016</div>
+      <div>
+        <h3 class="job-title">Web and Mobile Developer</h3>
+        <div class="job-sub">Web and mobile apps</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+    <li class="job" data-from="2015-11" data-to="2016-05">
+      <div class="caps job-when">Nov 2015 – May 2016</div>
+      <div>
+        <h3 class="job-title">Trainee, then Software Engineer</h3>
+        <div class="job-sub">iOS, PHP and hybrid apps</div>
+      </div>
+      <div class="job-track" aria-hidden="true"></div>
+    </li>
+  </ol>
+</section>
+
+<section class="section" id="teaching">
+  <div class="section-head">
+    <h2>Teaching and community</h2>
+  </div>
+  <div class="teach-grid">
+    <article class="teach">
+      <div class="caps kicker">Open University of Sri Lanka</div>
+      <h3>Lecturing</h3>
+      <p>Visiting Lecturer for BSc Software Engineering from 2021 to 2023, covering project management, Agile, and web and mobile application development.</p>
+    </article>
+    <article class="teach">
+      <div class="caps kicker">Interns and graduates</div>
+      <h3>Mentoring</h3>
+      <p>Mentored interns and supported growing teams. Ran training sessions and career-fair guidance for universities, and interviewed students for internships.</p>
+    </article>
+    <article class="teach">
+      <div class="caps kicker">In-house</div>
+      <h3>Writing and talks</h3>
+      <p>Edited a company magazine for two years, and gave internal tech talks and geek sessions.</p>
+    </article>
+    <article class="teach">
+      <div class="caps kicker">Hackathon</div>
+      <h3>TADHACK 2015</h3>
+      <p>Certified for the TADHACK 2015 telecom application hackathon.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-paper" id="stack">
+  <div class="split">
+    <div>
+      <h2>Tools I use</h2>
+      <div class="stack-group">
+        <div class="caps">Languages</div>
+        <div class="chips"><span class="chip">C#</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Dart</span><span class="chip">PHP</span><span class="chip">Python</span><span class="chip">Swift</span><span class="chip">SQL</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="caps">Frameworks</div>
+        <div class="chips"><span class="chip">.NET 8</span><span class="chip">ASP.NET</span><span class="chip">Avalonia</span><span class="chip">Angular</span><span class="chip">React</span><span class="chip">Next.js</span><span class="chip">Node.js</span><span class="chip">Flutter</span><span class="chip">Ionic</span><span class="chip">Laravel</span><span class="chip">Electron</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="caps">Cloud and data</div>
+        <div class="chips"><span class="chip">Azure Service Bus</span><span class="chip">Azure Functions</span><span class="chip">Cosmos DB</span><span class="chip">Kubernetes</span><span class="chip">Azure Container Instances</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">DigitalOcean</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="caps">Testing</div>
+        <div class="chips"><span class="chip">Playwright</span><span class="chip">k6</span><span class="chip">End-to-end tests</span><span class="chip">Load and stress tests</span><span class="chip">Unit and integration tests</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="caps">Practice</div>
+        <div class="chips"><span class="chip">Microservices</span><span class="chip">Agile and Scrum</span><span class="chip">Release management</span><span class="chip">CI/CD</span><span class="chip">Client requirements</span></div>
+      </div>
+    </div>
+
+    <div>
+      <h2>Education</h2>
+      <ul class="edu">
+        <li>
+          <span class="edu-school">London Metropolitan University</span>
+          <span class="edu-what">MSc in AI, in progress</span>
+          <span class="caps edu-when">Current</span>
+        </li>
+        <li>
+          <span class="edu-school">Sabaragamuwa University of Sri Lanka</span>
+          <span class="edu-what">BSc, Computing and Information Systems</span>
+          <span class="caps edu-when">2011–2016</span>
+        </li>
+        <li>
+          <span class="edu-school">Chartered Institute of Management Accountants</span>
+          <span class="edu-what">Fundamentals: management and financial accounting, economics, maths</span>
+          <span class="caps edu-when">2011</span>
+        </li>
+        <li>
+          <span class="edu-school">International College of Business and Technology</span>
+          <span class="edu-what">Diploma, Information and Communication Technology</span>
+          <span class="caps edu-when">2010</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="caps hero-kicker" style="margin-bottom: 18px">Contact</div>
+      <h2>Have an app in mind?</h2>
+      <p class="contact-dek">Tell me what it should do and who will use it. I will reply with questions, a rough plan, and the simplest way to build it well.</p>
+    </div>
+    <dl class="contact-list">
+      <div>
+        <dt>Email</dt>
+        <dd>
+          <div class="email-row">
+            <a class="email" href="mailto:chamil.kandamby@icloud.com" id="email">chamil.kandamby@icloud.com</a>
+            <button class="copy" type="button" id="copy-email" data-copy="chamil.kandamby@icloud.com">Copy</button>
+          </div>
+        </dd>
+      </div>
+      <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/chamilkandamby" rel="me">linkedin.com/in/chamilkandamby</a></dd></div>
+      <div><dt>Location</dt><dd><img class="flag" src="assets/flag-lk.svg" alt="" width="22" height="11">Moratuwa, Sri Lanka · UTC+5:30 · working remotely</dd></div>
+      <div><dt>Languages</dt><dd>English, Sinhala</dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-legal">
+    <span>&copy; <span data-year>2026</span> Chamil Kandamby</span>
+    <a href="https://around2.com">Also on around2.com</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // Mobile menu, the same toggle around2's masthead uses.
+  var toggle = document.querySelector('[data-nav-toggle]');
+  var nav = document.getElementById('site-nav');
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function (e) {
+    if (e.target.closest('a')) { nav.classList.remove('is-open'); toggle.setAttribute('aria-expanded', 'false'); }
+  });
+
+  // Copy the address; fall back to selecting it where the clipboard is refused.
+  var copy = document.getElementById('copy-email');
+  copy.addEventListener('click', function () {
+    var done = function () { copy.textContent = 'Copied'; setTimeout(function () { copy.textContent = 'Copy'; }, 1800); };
+    var select = function () {
+      var range = document.createRange();
+      range.selectNodeContents(document.getElementById('email'));
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
+      copy.textContent = 'Press Ctrl+C';
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(copy.dataset.copy).then(done, select);
+    } else { select(); }
+  });
+
+  var now = new Date();
+  document.querySelector('[data-year]').textContent = now.getFullYear();
+
+  // Experience bars on one shared axis: Jan 2015 to Jan of next year.
+  var axisStart = 2015, axisEnd = now.getFullYear() + 1, span = axisEnd - axisStart;
+  var start = function (s) { var p = s.split('-'); return +p[0] + (p[1] - 1) / 12; };
+  var end = function (s) {
+    if (s === 'now') return now.getFullYear() + (now.getMonth() + 1) / 12;
+    var p = s.split('-'); return +p[0] + p[1] / 12;
+  };
+  var pct = function (v) { return ((v - axisStart) / span * 100).toFixed(3) + '%'; };
+  var ticks = [];
+  for (var y = 2016; y < axisEnd; y += 2) ticks.push(y);
+
+  document.querySelector('[data-axis]').innerHTML = ticks.map(function (y) {
+    return '<span class="tick" style="left:' + pct(y) + '">' + y + '</span>';
+  }).join('');
+
+  document.querySelectorAll('[data-timeline] [data-from]').forEach(function (job) {
+    var s = start(job.dataset.from), e = end(job.dataset.to);
+    job.querySelector('.job-track').innerHTML =
+      ticks.map(function (y) { return '<i class="grid" style="left:' + pct(y) + '"></i>'; }).join('') +
+      '<span class="job-bar" style="left:' + pct(s) + ';width:' + ((e - s) / span * 100).toFixed(3) + '%"></span>';
+  });
+})();
+</script>
+</body>
+</html>
